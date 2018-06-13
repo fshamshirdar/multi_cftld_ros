@@ -1,17 +1,14 @@
 ## Intro
 
-ROS wrapper for CFTld, a long-term visual tracker, Based on [CFTld tracker](https://github.com/klahaag/CFtld),
-
-## Installation
-
-TBA
+ROS wrapper for CFTld with multiple objects, a long-term visual tracker, Based on [CFTld tracker](https://github.com/klahaag/CFtld),
+Forked from [CFTld ROS wrapper](https://github.com/AutonomyLab/cftld_ros),
 
 ## Misc
 
 Debug the nodelet with GDB:
 
 ```bash
-$ rosrun --prefix "gdb --args" nodelet nodelet standalone cftld_ros/CFtldRosNodelet```
+$ rosrun --prefix "gdb --args" nodelet nodelet standalone multi_cftld_ros/MultiCFtldRosNodelet```
 
 ### Some resources
 
