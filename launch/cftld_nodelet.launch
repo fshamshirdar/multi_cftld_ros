@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="output" default="screen"/>
+
+  <arg name="spawn_nodelet_manager" default="true" />
+  <arg name="nodelet_manager" default="nodelet_manager" />
+
+  <!-- param file is all ros related params -->
+  <!-- cfg file configures TLD -->
+  <arg name="multi_cftld_param_file" default="$(find multi_cftld_ros)/config/default.yaml" />
+  <arg name="multi_cftld_config_file" default="$(find multi_cftld_ros)/config/cftld.cfg" />
+
+  <!-- nodelet manager -->
+  <group if="$(arg spawn_nodelet_manager)">
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager)" args="manager" output="$(arg output)"/>
+  </group>
+
+  <!-- temp -->
+  <!--node name="republisher" type="republish" pkg="image_transport"
+    args="compressed in:=bebop/image_raw raw out:=bebop/image_raw" output="$(arg output)" /-->
+
+  <node pkg="nodelet" type="nodelet" name="multi_cftld_nodelet"
+    args="load cftld_ros/MultiCFtldRosNodelet $(arg nodelet_manager)" output="$(arg output)">
+    <remap from="image_raw" to="bebop/image_raw" />
+    <remap from="init_roi" to="multi_cftld/init_roi" />
+    <remap from="reset" to="multi_cftld/reset" />
+    <remap from="tracks" to="multi_cftld/tracks" />
+    <remap from="debug_image" to="multi_cftld/debug_image" />
+
+    <param name="tld_config_file" value="$(arg multi_cftld_config_file)" />
+    <rosparam command="load" file="$(arg multi_cftld_param_file)" />
+  </node>
+</launch>

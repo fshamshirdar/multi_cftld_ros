@@ -1,0 +1,5 @@
+<library path="lib/libmulti_cftld_nodelet_class">
+  <class name="multi_cftld_ros/MultiCFtldRosNodelet" type="multi_cftld_ros::MultiCFtldRosNodelet" base_class_type="nodelet::Nodelet">
+    <description>Nodelet implementation of Multi CFtld Tracker in ROS</description>
+  </class>
+</library>
