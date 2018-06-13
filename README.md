@@ -1,6 +1,6 @@
 ## Intro
 
-ROS wrapper for CFTld with multiple objects, a long-term visual tracker, Based on [CFTld tracker](https://github.com/klahaag/CFtld),
+ROS wrapper for CFTld with multiple objects, a long-term visual tracker, Based on [CFTld tracker](https://github.com/klahaag/CFtld).
 Forked from [CFTld ROS wrapper](https://github.com/AutonomyLab/cftld_ros),
 
 ## Misc
